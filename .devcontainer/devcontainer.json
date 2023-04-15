@@ -1,0 +1,20 @@
+{
+    "name": "Flutter",
+    "dockerFile": "Dockerfile",
+    "appPort": [8080],
+    "extensions": [
+        "dart-code.dart-code",
+        "dart-code.flutter"
+    ],
+    "settings": {
+        "dart.flutterSdkPath": "/opt/flutter",
+        "dart.sdkPath": "/opt/flutter/bin/cache/dart-sdk",
+        "dart.flutterCreateOrganization": "com.example",
+        "dart.flutterCreateAndroidLanguage": "kotlin",
+        "dart.flutterCreateIosLanguage": "swift"
+    },
+    "remoteEnv": {
+        "PATH": "/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:${containerEnv:PATH}"
+    },
+    "postCreateCommand": "flutter doctor && git submodule update --init --recursive"
+}
